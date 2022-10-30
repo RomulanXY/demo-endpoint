@@ -2,11 +2,14 @@ const express = require('express');
 const data = require('./data')
 
 const api = express();
-const HOST = 'localhost';
-const PORT = 5000;
+const HOST = 'https://localhost';
+const PORT = process.env.PORT || 5000;
 
 
 api.get('/', (req, res) => {
+    res.send('Go to /me path');
+})
+api.get('/me', (req, res) => {
     res.status(200).json(data);
 })
 
